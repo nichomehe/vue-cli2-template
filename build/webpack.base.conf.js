@@ -35,7 +35,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('node_modules/rong-ui/components')]
+        include: [resolve('src')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
