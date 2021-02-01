@@ -1,0 +1,138 @@
+
+body * {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html,body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "PingFangSC-Regular PingFang SC", arial, sans-serif;
+  /* 解决ios下滑动卡顿问题 */
+  // -webkit-transfrom: translate3D(0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select:none;
+  -webkit-text-size-adjust: 100% !important;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+input {
+  color: #333;
+}
+input[readonly] {
+  color: #999 !important;
+}
+input::-webkit-input-placeholder {
+  color: #999 !important;
+  font-size: 14px;
+}
+input:-moz-placeholder {
+  color: #999 !important;
+}
+textarea::-webkit-input-placeholder {
+  color: #999 !important;
+  font-size: 14px;
+}
+
+/* 使用和盒模型 */
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* disable tapping highlight color */
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+  margin:0;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* 表单元素不继承父元素 */
+input, select {
+  font-family: PingFangSC, Helvetica, Arial, sans-serif;
+  outline: none;
+  border: none;
+}
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+  -webkit-appearance: none;
+}
+textarea {
+  -webkit-appearance: none;
+  outline: none;
+}
+img{
+  width:100%;
+  height:100%;
+}
+a{
+  text-decoration: none;
+  color: #0076ff;
+}
+input {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-border-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+/*去掉 moz 按钮边上的光环*/
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+/*禁止对 btn 上的文字选择*/
+button, .button, .btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*
+禁止选择，对 input 输入框无效
+禁止用户选择文字，不禁止的话，用户在手机上点击的话，很容易选择上上面的文字
+*/
+.no-select {
+  user-select: none;
+  -webkit-touch-callout: none;
+}

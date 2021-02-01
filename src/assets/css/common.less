@@ -1,0 +1,294 @@
+/*
+*  created by kevinmin
+*  time 2018-06-26
+*/
+@import './less/_color';
+@import './less/_font';
+@import './less/_reset';
+@import './less/_text';
+
+/* center样式，父级元素relative */
+.h-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+.v-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hv-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.v-align-center{
+  vertical-align: middle;
+}
+.block{
+  display: block;
+}
+/* 布局相关 */
+.width-100{
+  width: 100%;
+}
+.height-100{
+  height:100%;
+}
+.fix-top{
+  position:fixed !important;
+  width: 100%;
+  top:0px;
+  left: 0px;
+  z-index: 9;
+}
+.relative{
+  position: relative;
+}
+.flex-column{
+  display: flex;
+  // -webkit-box-align: center;
+  // -webkit-box-pack: center;/*start     center end    justify*/
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  // -webkit-box-align: center;
+  // -webkit-box-pack: center;/*start     center end    justify*/
+  align-items: center;
+  justify-content: center;
+}
+.align-baseline{
+  align-items: baseline;
+}
+.flex-1{
+  -webkit-box-flex: 1;
+  flex: 1;
+  overflow: auto;
+}
+
+/* border 相关 */
+.border-extend{
+  content: ' ';
+  position: absolute;
+  background: #D8D9DC;
+  transform: scale(0.5);
+}
+
+.border-left{
+  position: relative;
+  &:after{
+    &:extend(.border-extend);
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 200%;
+    transform-origin: top;
+  }
+}
+
+.border-right{
+  position: relative;
+  &:after{
+    &:extend(.border-extend);
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 200%;
+    transform-origin: top;
+  }
+}
+
+.border-top{
+  position: relative;
+  &:after{
+    &:extend(.border-extend);
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 1px;
+    transform-origin: left;
+  }
+}
+
+.border-bottom{
+  position: relative;
+  &:after{
+    &:extend(.border-extend);
+    left: 0;
+    bottom: 0;
+    width: 200%;
+    height: 1px;
+    transform-origin: left;
+  }
+}
+
+.border-bottom-dash{
+  position: relative;
+  &:after{
+    &:extend(.border-extend);
+    background: linear-gradient(to right, #D8D9DC,#D8D9DC 8px, transparent 8px, transparent);
+    background-size: 16px 100%;
+    left: 0;
+    bottom: 0;
+    width: 200%;
+    height: 1px;
+    transform-origin: left;
+  }
+}
+
+.border{
+  position: relative;
+  &:after{
+    content: ' ';
+    border: 1px solid #D8D9DC;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: left top;
+    
+  }
+}
+.border-theme{
+  &:after{
+    border-color: @themecolor !important;
+  }
+}
+
+.no-border{
+  [class*='border-']:after{
+    height: 0 !important;
+  }
+}
+.nowrap{
+  white-space: nowrap;
+}
+
+/* 生产margin padding */
+.padding-top-ipx{
+  padding-top:35px;
+}
+.padding-top-nipx{
+  padding-top:20px;
+}
+.contMp(@count) when (@count >= 0) {
+  .contMp((@count - 1));
+  .margin-@{count} {
+    margin: @count*1px;
+  }
+  .margin-top-@{count} {
+    margin-top: @count*1px;
+  }
+  .margin-left-@{count} {
+    margin-left: @count*1px;
+  }
+  .margin-bottom-@{count} {
+    margin-bottom: @count*1px;
+  }
+  .margin-right-@{count} {
+    margin-right: @count*1px;
+  }
+  .padding-@{count} {
+    padding: @count*1px;
+  }
+  .padding-top-@{count} {
+    padding-top: @count*1px;
+  }
+  .padding-left-@{count} {
+    padding-left: @count*1px;
+  }
+  .padding-bottom-@{count} {
+    padding-bottom: @count*1px;
+  }
+  .padding-right-@{count} {
+    padding-right: @count*1px;
+  }
+}
+.contMp(50);
+
+
+.title-red-info{
+  position: relative;
+  display: inline-block;
+  &:after{
+    content: ' ';
+    position: absolute;
+    top:12px;
+    right:-4px;
+    width: 8px;
+    height: 8px;
+    background: #FA5D5D;
+    border-radius: 50%;
+  }
+}
+
+
+// vue transition 淡入淡出动画
+.router-fade-enter-active, .router-fade-leave-active {
+  transition: opacity .2s;
+}
+.router-fade-enter, .router-fade-leave-active {
+  opacity: 0;
+}
+
+
+// 页面左右划入
+.router-swipe-enter-active {
+  transition: transform .2s;
+  z-index: 1;
+}
+.router-swipe-enter{
+  transform: translate3d(100%, 0, 0);
+}
+// 页面左右划入
+.router-swipe-left-enter-active {
+  transition: transform .2s;
+}
+.router-swipe-left-enter{
+  transform: translate3d(-100%, 0, 0);
+}
+.router-swipe-enter-to{
+  transform: translate3d(0, 0, 0);
+}
+
+
+.router-out-enter-active,
+  .router-out-leave-active,
+  .router-in-enter-active,
+  .router-in-leave-active {
+    transition: all .2s ease-out;
+    perspective: 10;
+  }
+
+  .router-out-enter {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  .router-out-leave-active {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    top:0;
+    position: absolute;
+  }
+  .router-in-enter {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  .router-in-leave-active {
+    opacity: 0;
+    top:0;
+    transform: translate3d(-100%, 0, 0);
+    position: absolute;
+  }
+  #__vconsole{
+    font-size: 12px !important;
+  }

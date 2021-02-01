@@ -1,0 +1,22 @@
+/* 生产fontsize */
+.contFont(@count) when (@count > 3) {
+  .contFont((@count - 1));
+  .f-@{count} {
+    font-size: @count*1px !important;
+  }
+}
+.contFont(40);
+
+.fw-400{
+  font-weight: 400;
+}
+.fw-600{
+  font-weight: 600;
+}
+
+.f-w{
+  font-weight: 600;
+}
+.fw{
+  font-weight: bold;
+}
